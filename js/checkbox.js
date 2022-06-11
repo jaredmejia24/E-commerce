@@ -1,6 +1,8 @@
 "use strict";
 
 import { products } from "./data.js";
+import {generateCardProducts} from "./script.js";
+
 
 function generateCategory(checkbox){
     /* let form = document.forms["filterHome"];
@@ -16,7 +18,6 @@ function generateCategory(checkbox){
         }
     }
     return newArray;
-    
 }
 
 function generateBrand(checkbox){
@@ -33,7 +34,6 @@ function generateBrand(checkbox){
         }
     }
     return newArray;
-    
 }
 
 function generateRam(checkbox){
@@ -49,6 +49,7 @@ function generateRam(checkbox){
             newArray.push(i);
         }
     }
+    /* console.log(newArray); */
     return newArray;
     
 }
@@ -59,11 +60,18 @@ function changeCheckboxST(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxComputer();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxTablets();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxAudio();
+        changeUnCheckboxGaming();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 
@@ -73,11 +81,18 @@ function changeCheckboxComputer(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxST();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxTablets();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxAudio();
+        changeUnCheckboxGaming();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 
@@ -87,13 +102,21 @@ function changeCheckboxCellphone(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxComputer();
+        changeUnCheckboxTablets();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxAudio();
+        changeUnCheckboxGaming();
+        changeUnCheckboxST();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
+
 
 function changeCheckboxTablets(cb){
     let checkbox = document.getElementById("tabletsFilter");
@@ -101,11 +124,18 @@ function changeCheckboxTablets(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxST();
+        changeUnCheckboxComputer();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxAudio();
+        changeUnCheckboxGaming();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 
@@ -115,11 +145,18 @@ function changeCheckboxGadgets(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxST();
+        changeUnCheckboxComputer();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxTablets();
+        changeUnCheckboxAudio();
+        changeUnCheckboxGaming();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 
@@ -129,11 +166,18 @@ function changeCheckboxAudio(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxST();
+        changeUnCheckboxComputer();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxTablets();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxGaming();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 function changeCheckboxGaming(cb){
@@ -142,11 +186,18 @@ function changeCheckboxGaming(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxST();
+        changeUnCheckboxComputer();
+        changeUnCheckboxCellphone();
+        changeUnCheckboxTablets();
+        changeUnCheckboxGadgets();
+        changeUnCheckboxAudio();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 
@@ -156,37 +207,48 @@ function changeCheckboxAndroid(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxApple();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
+
 function changeCheckboxApple(cb){
     let checkbox = document.getElementById("appleFilter");
     let image = document.getElementById('checkboxApple');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckboxAndroid();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
+
 function changeCheckbox12GB(cb){
     let checkbox = document.getElementById("12GBFilter");
     let image = document.getElementById('checkbox12GB');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        let array = cb(checkbox);
+        generateCardProducts(array);
+        changeUnCheckbox8GB();
+        changeUnCheckbox6GB();
+        changeUnCheckbox4GB();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 function changeCheckbox8GB(cb){
@@ -195,11 +257,15 @@ function changeCheckbox8GB(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckbox12GB();
+        changeUnCheckbox6GB();
+        changeUnCheckbox4GB();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
+        generateCardProducts(products);
     }
 }
 function changeCheckbox6GB(cb){
@@ -208,20 +274,218 @@ function changeCheckbox6GB(cb){
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+        generateCardProducts(cb(checkbox));
+        changeUnCheckbox12GB();
+        changeUnCheckbox8GB();
+        changeUnCheckbox4GB();
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+        generateCardProducts(products);
+    }
+}
+function changeCheckbox4GB(cb){
+    let checkbox = document.getElementById("4GBFilter");
+    let image = document.getElementById('checkbox4GB');
+    let input = document.querySelectorAll('input[type="checkbox"]:checked');
+    /* for(let i of input){
+        if(i == checkbox){
+            continue;
+        }
+        else{
+            
+        }
+    } */
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+
+        generateCardProducts(cb(checkbox));
+        changeUnCheckbox12GB();
+        changeUnCheckbox8GB();
+        changeUnCheckbox6GB();
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+        generateCardProducts(products);
+    }
+}
+
+function changeUnCheckboxST(){
+    let checkbox = document.getElementById("smartTvFilter");
+    let image = document.getElementById('checkboxSmartTv');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
     }
 }
-function changeCheckbox4GB(cb){
-    let checkbox = document.getElementById("4GBFilter");
-    let image = document.getElementById('checkbox4GB');
+
+function changeUnCheckboxComputer(){
+    let checkbox = document.getElementById("computerFilter");
+    let image = document.getElementById('checkboxComputer');
+    checkbox.checked = false;
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        cb(checkbox);
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+function changeUnCheckboxCellphone(){
+    let checkbox = document.getElementById("cellphoneFilter");
+    let image = document.getElementById('checkboxCellphone');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+
+function changeUnCheckboxTablets(){
+    let checkbox = document.getElementById("tabletsFilter");
+    let image = document.getElementById('checkboxTablets');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+function changeUnCheckboxGadgets(){
+    let checkbox = document.getElementById("gadgetsFilter");
+    let image = document.getElementById('checkboxGadgets');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+function changeUnCheckboxAudio(){
+    let checkbox = document.getElementById("audioFilter");
+    let image = document.getElementById('checkboxAudio');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+function changeUnCheckboxGaming(){
+    let checkbox = document.getElementById("gamingFilter");
+    let image = document.getElementById('checkboxGaming');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+function changeUnCheckboxAndroid(){
+    let checkbox = document.getElementById("androidFilter");
+    let image = document.getElementById('checkboxAndroid');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+function changeUnCheckboxApple(){
+    let checkbox = document.getElementById("appleFilter");
+    let image = document.getElementById('checkboxApple');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+
+function changeUnCheckbox12GB(){
+    let checkbox = document.getElementById("12GBFilter");
+    let image = document.getElementById('checkbox12GB');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+}
+function changeUnCheckbox8GB(){
+    let checkbox = document.getElementById("8GBFilter");
+    let image = document.getElementById('checkbox8GB');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+    
+}
+function changeUnCheckbox6GB(){
+    let checkbox = document.getElementById("6GBFilter");
+    let image = document.getElementById('checkbox6GB');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
+    }
+    else{
+        checkbox.style.display = 'inline-block';
+        image.innerHTML = '';
+    }
+   
+}
+function changeUnCheckbox4GB(){
+    let checkbox = document.getElementById("4GBFilter");
+    let image = document.getElementById('checkbox4GB');
+    checkbox.checked = false;
+    if(checkbox.checked){
+        checkbox.style.display = 'none';
+        image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
     }
     else{
         checkbox.style.display = 'inline-block';
