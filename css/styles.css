@@ -11,33 +11,36 @@ body {
 }
 
 .fs-tittle1{
-    font-size: 50px;
+    font-size: 3.125rem;
     font-weight: bolder;
 }
 
 .fs-tittle2{
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 .fs-subtittle1{
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .fs-subtittle2{
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: normal;
 }
 
 .fs-body1{
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: normal;
 }
 
 .fs-body2{
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: normal;
+}
+.bg-rose {
+    background-color: var(--rose-color);
 }
 
 .rose-color{
@@ -56,9 +59,23 @@ body {
     color: var(--dark-color);
 }
 
-.image-top {
+.icon-2-5rem {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.icon-2rem {
     width: 2rem;
     height: 2rem;
+}
+
+.icon-1-5rem {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon-1rem {
+    width: 1rem;
 }
 
 .chevron-arrow{
