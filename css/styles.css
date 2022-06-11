@@ -78,6 +78,16 @@ body {
     width: 1rem;
 }
 
+.product-img {
+    /* max-height: 200px; */
+    /* width: 250px; */
+    /* height: 250px; */
+}
+
+.card-product {
+    /* max-height: 200; */
+}
+
 .chevron-arrow{
     width: 1rem;
 }
