@@ -27,7 +27,7 @@ function generateCardProducts(arrayData) {
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <p class="m-0 fs-body2 light-gray-color fw-semibold">Precio:</p>
-                                <p class="ms-3 fs-subtittle1 dark-color">${arrayData[i].price}</p>
+                                <p class="ms-3 fs-subtittle1 dark-color">$${arrayData[i].price}</p>
                             </div>
                             <a href="#" class="bg-rose rounded-circle icon-2-5rem d-flex justify-content-center align-items-center">
                                 <img src="assets/shopping-cart 3.svg" class="icon-1-5rem" alt="">
@@ -39,4 +39,6 @@ function generateCardProducts(arrayData) {
     container.innerHTML = html;
 }
 
-generateCardProducts(products)
+generateCardProducts(products);
+
+export {generateCardProducts};
