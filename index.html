@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Yantramanav:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Pruebas</title>
+    <title>e-commerce</title>
 </head>
 <body>
     <div class="row border justify-content-center">
         <div class="col-6 my-auto ps-4">
-            <h4 class="fs-1 fw-bold rose">e-commerce</h4>
+            <h4 class="fs-tittle1 rose-color">e-commerce</h4>
         </div>
         <div class="col-2 border-start d-flex justify-content-center py-3">
             <a href="#">
@@ -32,8 +32,202 @@
             </a>
         </div>
     </div>
-    <div class="container ms-2 mt-4">
-        <h2>Hello World</h2>
+    <div class="home-container d-flex">
+        <div class="row">
+            <div class="filter-container justify-content-center" style="width: 25vw;">
+                <div class="row mt-2 mx-4">
+                    <div class="col">
+                        <div>
+                            <h2 class="fs-subtittle2">Home</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-4 mt-2 border-bottom">
+                    <div class="col">
+                        <div>
+                            <h3 class="fs-body1">Precio</h3>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <img class="chevron-arrow" src="/assets/chevron-down.svg">
+                    </div>
+                </div>
+                <div class="d-flex row mt-3 mx-5">
+                    <div class="col">
+                        <input class="price-filter" type="number" name="priceFrom" id="priceFrom" placeholder="De:" min="0" max="99999">
+                    </div>
+                    <div class="col">
+                        <input class="price-filter" type="number" name="priceTo" id="priceTo" placeholder="Hasta:" min="0" max="99999">
+                    </div>
+                </div>
+                <div class="row mt-2 mx-4 border-bottom">
+                    <div class="col">
+                        <div>
+                            <h3 class="fs-body1">Categoria</h3>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <img class="chevron-arrow" src="/assets/chevron-down.svg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxST()" type="checkbox" name="smartTvFilter" id="smartTvFilter">
+                                    <div class="d-inline-block" id="checkboxSmartTv">
+                                    </div>
+                                    <label class="fs-body2" for="smartTvFilter">Smart Tv</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxComputer()" type="checkbox" name="computerFilter" id="computerFilter">
+                                    <div class="d-inline-block" id="checkboxComputer">
+                                    </div>
+                                    <label class="fs-body2" for="computerFilter">Computadoras</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxCellphone()" type="checkbox" name="cellphoneFilter" id="cellphoneFilter">
+                                    <div class="d-inline-block" id="checkboxCellphone">
+                                    </div>
+                                    <label class="fs-body2" for="cellphoneFilter">Celulares</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxTablets()" type="checkbox" name="tabletsFilter" id="tabletsFilter">
+                                    <div class="d-inline-block" id="checkboxTablets">
+                                    </div>
+                                    <label class="fs-body2" for="tabletsFilter">Tablets</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxGadgets()" type="checkbox" name="gadgetsFilter" id="gadgetsFilter">
+                                    <div class="d-inline-block" id="checkboxGadgets">
+                                    </div>
+                                    <label class="fs-body2" for="gadgetsFilter">Gadgets</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxAudio()" type="checkbox" name="audioFilter" id="audioFilter">
+                                    <div class="d-inline-block" id="checkboxAudio">
+                                    </div>
+                                    <label class="fs-body2" for="audioFilter">Audio</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxGaming()" type="checkbox" name="gamingFilter" id="gamingFilter">
+                                    <div class="d-inline-block" id="checkboxGaming">
+                                    </div>
+                                    <label class="fs-body2" for="gamingFilter">Gaming</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mx-4 border-bottom">
+                    <div class="col">
+                        <div>
+                            <h3 class="fs-body1">Dispositivo</h3>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <img class="chevron-arrow" src="/assets/chevron-down.svg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxAndroid()" type="checkbox" name="androidFilter" id="androidFilter">
+                                    <div class="d-inline-block" id="checkboxAndroid">
+                                    </div>
+                                    <label class="fs-body2" for="androidFilter">Android</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckboxApple()" type="checkbox" name="appleFilter" id="appleFilter">
+                                    <div class="d-inline-block" id="checkboxApple">
+                                    </div>
+                                    <label class="fs-body2" for="appleFilter">Apple</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mx-4 border-bottom">
+                    <div class="col">
+                        <div>
+                            <h3 class="fs-body1">Ram</h3>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <img class="chevron-arrow" src="/assets/chevron-down.svg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckbox12GB()" type="checkbox" name="12GBFilter" id="12GBFilter">
+                                    <div class="d-inline-block" id="checkbox12GB">
+                                    </div>
+                                    <label class="fs-body2" for="12GBFilter">12GB</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckbox8GB()" type="checkbox" name="8GBFilter" id="8GBFilter">
+                                    <div class="d-inline-block" id="checkbox8GB">
+                                    </div>
+                                    <label class="fs-body2" for="8GBFilter">8GB</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckbox6GB()" type="checkbox" name="6GBFilter" id="6GBFilter">
+                                    <div class="d-inline-block" id="checkbox6GB">
+                                    </div>
+                                    <label class="fs-body2" for="6GBFilter">6GB</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mt-3 w-100">
+                                    <input class="mx-4" onclick="changeCheckbox4GB()" type="checkbox" name="4GBFilter" id="4GBFilter">
+                                    <div class="d-inline-block" id="checkbox4GB">
+                                    </div>
+                                    <label class="fs-body2" for="4GBFilter">4GB</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="width: 75vw;" class="products-container mt-5 mx-5">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="searchProduct" id="searchProduct">
+                    </div>
+                    <div class="col">
+                        <p>Samsung</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/js/checkbox.js"></script>
+    <script src="/js/script.js" type="module"></script>
 </body>
 </html>
