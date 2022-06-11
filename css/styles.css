@@ -1,18 +1,115 @@
 :root {
-    --rose-color: #F85555
+    --rose-color: #F85555;
+    --light-gray-color: #dcd9d9;
+    --gray-color: #c7c7c7;
+    --dark-color: #4F4F4F;
 }
 
 body {
     font-family: 'Yantramanav', sans-serif;
+    margin: 0;
+}
+
+.fs-tittle1{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.fs-tittle2{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.fs-subtittle1{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fs-subtittle2{
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.fs-body1{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.fs-body2{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.rose-color{
     color: var(--rose-color);
 }
 
-.min-height-2 {
-    /* min-height: 2rem; */
+.light-gray-color{
+    color: var(--light-gray-color);
 }
 
+.gray-color{
+    color: var(--gray-color);
+}
+
+.dark-color{
+    color: var(--dark-color);
+}
 
 .image-top {
     width: 2rem;
     height: 2rem;
+}
+
+.chevron-arrow{
+    width: 1rem;
+}
+
+.price-filter{
+    width: 100%;
+    border: 1px solid var(--gray-color);
+    border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+/*Eliminar flechas del input number*/
+.price-filter::-webkit-outer-spin-button,
+.price-filter::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    /* margin-right: 1rem;
+    margin-left: 2rem; */
+    background-color: white;
+    border: 1px solid var(--gray-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+label{
+    cursor: pointer;
+}
+
+.image-checkbox{
+    margin-top: -10px;
+    width: 25px;
+}
+
+/*fix problem of checkbox not working when is checked*/
+div ul li div label{
+    display: inline-block;
+    margin-left: -55px;
+    padding-left: 55px;
 }
