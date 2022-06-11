@@ -2,7 +2,6 @@
 
 import { products } from "./data.js";
 
-console.log(products);
 
 function generateCardProducts(arrayData) {
     const container = document.getElementById('cards-products-container');
