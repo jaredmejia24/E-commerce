@@ -1,0 +1,18 @@
+:root {
+    --rose-color: #F85555
+}
+
+body {
+    font-family: 'Yantramanav', sans-serif;
+    color: var(--rose-color);
+}
+
+.min-height-2 {
+    /* min-height: 2rem; */
+}
+
+
+.image-top {
+    width: 2rem;
+    height: 2rem;
+}
