@@ -12,13 +12,14 @@
     <title>e-commerce</title>
 </head>
 <body>
+    <!-- Header -->
     <div class="header position-sticky">
-        <div class="row border justify-content-center">
+        <div class="row border justify-content-center g-0">
             <div class="col-6 my-auto ps-4">
                 <h4 class="fs-tittle1 rose-color">e-commerce</h4>
             </div>
             <div class="col-2 border-start d-flex justify-content-center py-3">
-                <a href="#" onclick="event.preventDefault(),generateUserMenu()">
+                <a href="#" onclick="event.preventDefault(),toggleMenu()">
                     <img src="assets/user 2.svg" class="icon-2rem" alt="">
                 </a>
             </div>
@@ -34,6 +35,31 @@
             </div>
         </div>
         <div class="row container-dropdown-header" id="dropdown-header-container">
+            <div class="col-8 d-flex justify-content-end">
+                <div class="col-3 p-3 shadow position-absolute bg-white hidden" id="user-menu">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn-close" aria-label="Close" onclick="event.preventDefault(),toggleMenu()"></button>
+                    </div>
+                    <div class="d-flex flex-column row-gap-1rem mb-5rem">
+                        <p class="fs-body2 dark-color fw-semibold m-0">Inicio de sesión o Registro</p>
+                        <a href='https://www.google.com/' class="text-decoration-none">
+                            <div class="d-flex border justify-content-center">
+                                <img src="assets/flat-color-icons_google.svg" class="icon-1-5rem my-2 me-4" alt="">
+                                <p class="light-gray-color fs-body2 my-2">Acceder con google</p>
+                            </div>
+                        </a>
+                        <a href='https://www.facebook.com/' class="text-decoration-none">
+                            <div class="d-flex border justify-content-center">
+                                <img src="assets/akar-icons_facebook-fill.svg" class="icon-1-5rem my-2 me-4" alt="">
+                                <p class="light-gray-color fs-body2 my-2">Acceder con facebook</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                Hola
+            </div>
         </div>
     </div>
     <form name="filterHome">
@@ -222,22 +248,34 @@
     </form>
         <div class="row">
             <div style="width: 75vw;" class="products-container mt-5 mx-5">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" name="searchProduct" id="searchProduct">
-                    </div>
+                <div class="row g-0">
+                    <form action="/create.html" class="col" onsubmit="event.preventDefault(), filteringByInput()">
+                        <div class="d-flex">
+                            <input class="border form-control" type="text" placeholder="¿Qué producto estás buscando?" id="input-search">
+                            <button type="submit">
+                                <img src="assets/search 1.svg" class="border" alt="">
+                            </button>                     
+                        </div>
+                    </form>
                     <div class="col">
                         <p>Samsung</p>
                     </div>
                 </div>
+                <div class="row g-0">
+                    <div class="d-flex my-3" id="quantity-of-products">
+                        <!-- contenedor de la cantidad de productos, ya está dinamica con respecto a la cantidad de
+                        objetos dentro del array 'products' en data.js -->
+                    </div>
+                </div>
                 <!-- acá es el contenedor de las cards de los productos -->
-                <div class="row" id="cards-products-container">
-                    <!-- acá tenemos el modelo de cada card, con el col-4 para que sean de 3 por línea -->
+                <div class="row g-0" id="cards-products-container">
+                    <!-- acá ponemos el modelo de cada card, con el col-4 para que sean de 3 por línea -->
                 </div>
             </div>
         </div>
     </div>
     <script src="/js/checkbox.js" type="module"></script>
     <script src="/js/script.js" type="module"></script>
+    <script src="/js/filters.js" type="module"></script>
 </body>
 </html>

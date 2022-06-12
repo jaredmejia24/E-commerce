@@ -11,16 +11,20 @@ function generateUserMenu() {
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn-close" aria-label="Close" onclick="event.preventDefault(),deleteUserMenu()"></button>
                         </div>
-                        <div class="d-flex flex-column">
-                            <p class="fs-body2 dark-color fw-semibold">Inicio de sesión o Registro</p>
-                            <div class="d-flex border justify-content-center my-2">
-                                <img src="assets/flat-color-icons_google.svg" class="icon-1-5rem my-2 me-4" alt="">
-                                <p class="light-gray-color fs-body2 my-2">Acceder con google</p>
-                            </div>
-                            <div class="d-flex border justify-content-center my-2 mb-5">
-                                <img src="assets/akar-icons_facebook-fill.svg" class="icon-1-5rem my-2 me-4" alt="">
-                                <p class="light-gray-color fs-body2 my-2">Acceder con facebook</p>
-                            </div>
+                        <div class="d-flex flex-column row-gap-1rem mb-5rem">
+                            <p class="fs-body2 dark-color fw-semibold m-0">Inicio de sesión o Registro</p>
+                            <a href='https://www.google.com/' class="text-decoration-none">
+                                <div class="d-flex border justify-content-center">
+                                    <img src="assets/flat-color-icons_google.svg" class="icon-1-5rem my-2 me-4" alt="">
+                                    <p class="light-gray-color fs-body2 my-2">Acceder con google</p>
+                                </div>
+                            </a>
+                            <a href='https://www.facebook.com/' class="text-decoration-none">
+                                <div class="d-flex border justify-content-center">
+                                    <img src="assets/akar-icons_facebook-fill.svg" class="icon-1-5rem my-2 me-4" alt="">
+                                    <p class="light-gray-color fs-body2 my-2">Acceder con facebook</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -33,6 +37,13 @@ function deleteUserMenu() {
     const container = document.getElementById('dropdown-header-container');
     let html = ''
     container.innerHTML = html;
+}
+
+function quantityProducts(arrayData) {
+    const container = document.getElementById('quantity-of-products');
+    let html = `<p class="my-auto me-2 fs-body2">Total de produtos:</p>
+            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`
+    container.innerHTML = html
 }
 
 function generateCardProducts(arrayData) {
@@ -71,13 +82,21 @@ function generateCardProducts(arrayData) {
     container.innerHTML = html;
 }
 
+function toggleMenu() {
+    const container = document.getElementById('user-menu');
+    container.classList.toggle('hidden');
+}
 
 generateCardProducts(products)
+
+quantityProducts(products)
 
 
 window.generateUserMenu = generateUserMenu
 
 window.deleteUserMenu = deleteUserMenu
+
+window.toggleMenu = toggleMenu
 
 export {generateCardProducts};
 
