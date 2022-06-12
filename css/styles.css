@@ -14,6 +14,15 @@ body {
     display: none;
 }
 
+.mb-5rem {
+    margin-bottom: 5rem;
+}
+
+.row-gap-1rem {
+    row-gap: 1rem;
+}
+
+
 .fs-tittle1{
     font-size: 3.125rem;
     font-weight: bolder;
@@ -26,7 +35,7 @@ body {
 
 .fs-subtittle1{
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .fs-subtittle2{
