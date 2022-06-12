@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="css/paymentStyles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Yantramanav:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <title>e-commerce</title>
+</head>
+
+<body>
+  <div class="row border justify-content-center">
+    <div class="col-6 my-auto ps-4">
+      <h4 class="fs-tittle1 rose-color">e-commerce</h4>
+    </div>
+    <div class="col-2 border-start d-flex justify-content-center py-3">
+      <a href="#">
+        <img src="assets/user 2.svg" class="image-top" alt="" />
+      </a>
+    </div>
+    <div class="col-2 border-start d-flex justify-content-center py-3">
+      <a href="#">
+        <img src="assets/heart 1.svg" class="image-top" alt="" />
+      </a>
+    </div>
+    <div class="col-2 border-start d-flex justify-content-center py-3">
+      <a href="#">
+        <img src="assets/shopping-cart 3.svg" class="image-top" alt="" />
+      </a>
+    </div>
+  </div>
+  <div class="input-group w-25 mt-5 position-absolute start-50 translate-middle">
+    <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-primary" id="btnSearch">
+      <img src="assets/search 1.svg" alt="search btn" />
+    </button>
+  </div>
+  <!-- Forms -->
+  <div class="process-wrapper">
+    <!-- Progress bar -->
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+    <div class="progress-step active-step" data-title="Tus datos"><img src="assets/user 1.svg" alt=""></div>
+    <div class="progress-step" data-title="Envio"><img src="assets/truck 2.svg" alt=""></div>
+    <div class="progress-step" data-title="Pago"><img src="assets/credit-card 1.svg" alt=""></div>
+    <div class="progress-step" data-title="Comprobante"><img src="assets/file-text 1.svg" alt=""></div>
+  </div>
+    <div class="form-design active-form">
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Correo</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ejemplo@correo.com">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Escribe tu nombre completo">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label phone-input">Telefono</label>
+        <input type="tel" class="form-control" id="phone">
+      </div>
+      <div class="mb-3 btn-position">
+        <button type="button" class="btn btn-primary btn-next">Siguiente</button>
+      </div>
+    </div>
+    <div class="form-design">
+      <form class="row g-3">
+        <div class="col-md-12">
+          <label for="inputText1" class="form-label">Calle</label>
+          <input type="text" class="form-control" id="inputText1" placeholder="Nombre y numero de calle">
+        </div>
+        <div class="col-6">
+          <label for="inputAddress" class="form-label">Colonia</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="San Sebastian">
+        </div>
+        <div class="col-6">
+          <label for="inputZip" class="form-label">Codigo Postal</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="000">
+        </div>
+        <div class="col-12">
+          <label for="inputCity" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Ciudad">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Referencias</label>
+          <input type="text" class="form-control" id="inputAddress2"
+            placeholder="Entre calles, referencias de establecimientos, etc...">
+        </div>
+        <div class="mb-3 btn-group">
+          <button type="button" class="btn btn-secondary btn-prev">Volver</button>
+          <button type="button" class="btn btn-primary btn-next">Siguiente</button>
+        </div>
+    </div>
+    <div class="form-design">
+      <div class="row gx-3">
+        <div class="col-12">
+          <div class="d-flex flex-column">
+            <p class="text mb-1">Numero de tarjeta</p>
+            <input class="form-control mb-3" type="text" placeholder="4123 34456 7659 2234">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="d-flex flex-column">
+            <p class="text mb-1">Nombre del titular de la tarjeta</p>
+            <input class="form-control mb-3" type="text" placeholder="Nombre como aparece en la tarjeta">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex flex-column">
+            <p class="text mb-1">Fecha de expiracion</p>
+            <input class="form-control mb-3" type="text" placeholder="MM/AA">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex flex-column">
+            <p class="text mb-1">CVV</p>
+            <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+          </div>
+        </div>
+        <div class="mb-3 btn-group">
+          <button type="button" class="btn btn-secondary btn-prev">Volver</button>
+          <!-- <button type="button" class="btn btn-primary btn-next">Siguiente</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="js/paymentScripts.js"></script>
+</body>
+
+</html>
