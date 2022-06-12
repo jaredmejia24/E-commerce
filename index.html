@@ -12,24 +12,28 @@
     <title>e-commerce</title>
 </head>
 <body>
-    <div class="row border justify-content-center">
-        <div class="col-6 my-auto ps-4">
-            <h4 class="fs-tittle1 rose-color">e-commerce</h4>
+    <div class="header position-sticky">
+        <div class="row border justify-content-center">
+            <div class="col-6 my-auto ps-4">
+                <h4 class="fs-tittle1 rose-color">e-commerce</h4>
+            </div>
+            <div class="col-2 border-start d-flex justify-content-center py-3">
+                <a href="#" onclick="event.preventDefault(),generateUserMenu()">
+                    <img src="assets/user 2.svg" class="icon-2rem" alt="">
+                </a>
+            </div>
+            <div class="col-2 border-start d-flex justify-content-center py-3">
+                <a href="#">
+                    <img src="assets/heart 1.svg" class="icon-2rem" alt="">
+                </a>
+            </div>
+            <div class="col-2 border-start d-flex justify-content-center py-3">
+                <a href="#">
+                    <img src="assets/shopping-cart 3.svg" class="icon-2rem" alt="">
+                </a>
+            </div>
         </div>
-        <div class="col-2 border-start d-flex justify-content-center py-3">
-            <a href="#">
-                <img src="assets/user 2.svg" class="icon-2rem" alt="">
-            </a>
-        </div>
-        <div class="col-2 border-start d-flex justify-content-center py-3">
-            <a href="#">
-                <img src="assets/heart 1.svg" class="icon-2rem" alt="">
-            </a>
-        </div>
-        <div class="col-2 border-start d-flex justify-content-center py-3">
-            <a href="#">
-                <img src="assets/shopping-cart 3.svg" class="icon-2rem" alt="">
-            </a>
+        <div class="row container-dropdown-header" id="dropdown-header-container">
         </div>
     </div>
     <form name="filterHome">
