@@ -222,12 +222,18 @@
     </form>
         <div class="row">
             <div style="width: 75vw;" class="products-container mt-5 mx-5">
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col">
                         <input type="text" name="searchProduct" id="searchProduct">
                     </div>
-                    <div class="col">
-                        <p>Samsung</p>
+                    <div class="col d-flex justify-content-end">
+                        <select onchange="selectBrand(), generateBrand()" class="select-filter"  id="brandFilter" name="brandFilter">
+                            <option selected="selected" value="brand">Cualquiera</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="mac">Mac</option>
+                            <option value="iphone">Iphone</option>
+                            <option value="huawei">Huawei</option>
+                          </select>
                     </div>
                 </div>
                 <!-- acá es el contenedor de las cards de los productos -->
