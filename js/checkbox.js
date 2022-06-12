@@ -3,64 +3,104 @@
 import { products } from "./data.js";
 import {generateCardProducts} from "./script.js";
 
-
-function generateCategory(checkbox){
-    /* let form = document.forms["filterHome"];
-    let checked = form.querySelectorAll('input[type="checkbox"]'); */
-    let index = checkbox.name.indexOf("Filter");
-    let filter = checkbox.name.slice(0, index);
+function filter(category, device, RAM, priceArray){
+    category = category.toLowerCase();
+    device = device.toLowerCase();
+    RAM = RAM.toLowerCase();
+    for(let i of priceArray){
+        Number(i);
+    }
     let newArray = [];
-    filter = filter.toLowerCase();
     for(let i of products){
         i.category = i.category.toLowerCase();
-        if(i.category==filter){
-            newArray.push(i);
-        }
-    }
-    return newArray;
-}
-
-function generateBrand(checkbox){
-    /* let form = document.forms["filterHome"];
-    let checked = form.querySelectorAll('input[type="checkbox"]'); */
-    let index = checkbox.name.indexOf("Filter");
-    let filter = checkbox.name.slice(0, index);
-    let newArray = [];
-    filter = filter.toLowerCase();
-    for(let i of products){
         i.device = i.device.toLowerCase();
-        if(i.device==filter){
-            newArray.push(i);
-        }
-    }
-    return newArray;
-}
-
-function generateRam(checkbox){
-    /* let form = document.forms["filterHome"];
-    let checked = form.querySelectorAll('input[type="checkbox"]'); */
-    let index = checkbox.name.indexOf("Filter");
-    let filter = checkbox.name.slice(0, index);
-    let newArray = [];
-    filter = filter.toLowerCase();
-    for(let i of products){
         i.RAM = i.RAM.toLowerCase();
-        if(i.RAM==filter){
-            newArray.push(i);
+        if(priceArray[0]==0 || priceArray[1]==0){
+            if(category!='' && device!="" && RAM!=""){
+                if(i.category==category && i.device==device && i.RAM == RAM){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && device!=""){
+                if(i.category==category && i.device==device){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && RAM!=""){
+                if(i.category==category && i.RAM == RAM){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && RAM!=""){
+                if(i.device==device && i.RAM == RAM){
+                    newArray.push(i);
+                }
+            }
+            else if(category!=""){
+                if(i.category==category){
+                    newArray.push(i);
+                }
+            }
+            else if(device!=""){
+                if(i.device==device){
+                    newArray.push(i);
+                }
+            }
+            else if(RAM!=""){
+                if(i.RAM==RAM){
+                    newArray.push(i);
+                }
+            }
+        }
+        else{
+            if(category!='' && device!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.category==category && i.device==device && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && device!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.category==category && i.device==device && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.category==category && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.device==device && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.category==category && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.device==device && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(RAM!="" && priceArray[0]>=priceTo[1]){
+                if(i.RAM==RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
         }
     }
-    /* console.log(newArray); */
     return newArray;
-    
 }
 
-function changeCheckboxST(cb){
+
+
+function changeCheckboxST(){
     let checkbox = document.getElementById("smartTvFilter");
     let image = document.getElementById('checkboxSmartTv');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxComputer();
         changeUnCheckboxCellphone();
         changeUnCheckboxTablets();
@@ -71,17 +111,15 @@ function changeCheckboxST(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxComputer(cb){
+function changeCheckboxComputer(){
     let checkbox = document.getElementById("computerFilter");
     let image = document.getElementById('checkboxComputer');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxST();
         changeUnCheckboxCellphone();
         changeUnCheckboxTablets();
@@ -92,17 +130,15 @@ function changeCheckboxComputer(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxCellphone(cb){
+function changeCheckboxCellphone(){
     let checkbox = document.getElementById("cellphoneFilter");
     let image = document.getElementById('checkboxCellphone');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxComputer();
         changeUnCheckboxTablets();
         changeUnCheckboxGadgets();
@@ -113,18 +149,16 @@ function changeCheckboxCellphone(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
 
-function changeCheckboxTablets(cb){
+function changeCheckboxTablets(){
     let checkbox = document.getElementById("tabletsFilter");
     let image = document.getElementById('checkboxTablets');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxST();
         changeUnCheckboxComputer();
         changeUnCheckboxCellphone();
@@ -135,17 +169,15 @@ function changeCheckboxTablets(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxGadgets(cb){
+function changeCheckboxGadgets(){
     let checkbox = document.getElementById("gadgetsFilter");
     let image = document.getElementById('checkboxGadgets');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxST();
         changeUnCheckboxComputer();
         changeUnCheckboxCellphone();
@@ -156,17 +188,15 @@ function changeCheckboxGadgets(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxAudio(cb){
+function changeCheckboxAudio(){
     let checkbox = document.getElementById("audioFilter");
     let image = document.getElementById('checkboxAudio');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxST();
         changeUnCheckboxComputer();
         changeUnCheckboxCellphone();
@@ -177,16 +207,14 @@ function changeCheckboxAudio(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
-function changeCheckboxGaming(cb){
+function changeCheckboxGaming(){
     let checkbox = document.getElementById("gamingFilter");
     let image = document.getElementById('checkboxGaming');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxST();
         changeUnCheckboxComputer();
         changeUnCheckboxCellphone();
@@ -197,50 +225,43 @@ function changeCheckboxGaming(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxAndroid(cb){
+function changeCheckboxAndroid(){
     let checkbox = document.getElementById("androidFilter");
     let image = document.getElementById('checkboxAndroid');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxApple();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckboxApple(cb){
+function changeCheckboxApple(){
     let checkbox = document.getElementById("appleFilter");
     let image = document.getElementById('checkboxApple');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckboxAndroid();
     }
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
-function changeCheckbox12GB(cb){
+function changeCheckbox12GB(){
     let checkbox = document.getElementById("12GBFilter");
     let image = document.getElementById('checkbox12GB');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        let array = cb(checkbox);
-        generateCardProducts(array);
         changeUnCheckbox8GB();
         changeUnCheckbox6GB();
         changeUnCheckbox4GB();
@@ -248,16 +269,16 @@ function changeCheckbox12GB(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
-function changeCheckbox8GB(cb){
+
+
+function changeCheckbox8GB(){
     let checkbox = document.getElementById("8GBFilter");
     let image = document.getElementById('checkbox8GB');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckbox12GB();
         changeUnCheckbox6GB();
         changeUnCheckbox4GB();
@@ -265,16 +286,14 @@ function changeCheckbox8GB(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
-function changeCheckbox6GB(cb){
+function changeCheckbox6GB(){
     let checkbox = document.getElementById("6GBFilter");
     let image = document.getElementById('checkbox6GB');
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-        generateCardProducts(cb(checkbox));
         changeUnCheckbox12GB();
         changeUnCheckbox8GB();
         changeUnCheckbox4GB();
@@ -282,26 +301,14 @@ function changeCheckbox6GB(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
-function changeCheckbox4GB(cb){
+function changeCheckbox4GB(){
     let checkbox = document.getElementById("4GBFilter");
     let image = document.getElementById('checkbox4GB');
-    let input = document.querySelectorAll('input[type="checkbox"]:checked');
-    /* for(let i of input){
-        if(i == checkbox){
-            continue;
-        }
-        else{
-            
-        }
-    } */
     if(checkbox.checked){
         checkbox.style.display = 'none';
         image.innerHTML = '<img class="mx-4 image-checkbox" src="/assets/check_box 3.svg">';
-
-        generateCardProducts(cb(checkbox));
         changeUnCheckbox12GB();
         changeUnCheckbox8GB();
         changeUnCheckbox6GB();
@@ -309,7 +316,6 @@ function changeCheckbox4GB(cb){
     else{
         checkbox.style.display = 'inline-block';
         image.innerHTML = '';
-        generateCardProducts(products);
     }
 }
 
@@ -493,9 +499,64 @@ function changeUnCheckbox4GB(){
     }
 }
 
-window.generateRam = generateRam
-window.generateCategory = generateCategory;
-window.generateBrand = generateBrand;
+function checkCheckboxes(){
+    let input = document.querySelectorAll('input[type="checkbox"]:checked');
+    if(input.length==0){
+        generateCardProducts(products);
+    }
+    else{
+        let RAM = "";
+        let category = "";
+        let device = "";
+        let array = [];
+        for(let i of input){
+            if(i.name.includes("GB")){
+                let index = i.name.indexOf("Filter");
+                RAM = i.name.slice(0, index);
+            }
+            else if(i.name.includes("android")|| i.name.includes("apple")){
+                let index = i.name.indexOf("Filter");
+                device = i.name.slice(0, index);
+            }
+            else{
+                let index = i.name.indexOf("Filter");
+                category = i.name.slice(0, index);
+            }
+        }
+
+        array = filter(category, device, RAM, checkPrice());
+        generateCardProducts(array);
+    }
+}
+
+function checkPrice(){
+    let pricefrom = document.getElementById("priceFrom");
+    let priceTo = document.getElementById("priceTo");
+    return [pricefrom.value, priceTo.value];
+}
+
+function priceGenerate(){
+    let priceArray = checkPrice();
+    let newArray = [];
+    for(let i of priceArray){
+        Number(i);
+    }
+    if(priceArray[0]!=0 && priceArray[1]!=0){
+        for(let i of products){
+            if(i.price<=priceArray[1] && i.price>=priceArray[0]){
+                newArray.push(i);
+            }
+        }
+    generateCardProducts(newArray);
+    }
+    else{
+        generateCardProducts(products);
+    }
+}
+
+window.priceGenerate = priceGenerate;
+window.checkPrice = checkPrice;
+window.checkCheckboxes = checkCheckboxes;
 window.changeCheckboxST = changeCheckboxST;
 window.changeCheckboxComputer = changeCheckboxComputer;
 window.changeCheckboxCellphone = changeCheckboxCellphone;

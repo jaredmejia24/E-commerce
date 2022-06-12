@@ -16,7 +16,7 @@ function generateCardProducts(arrayData) {
                              </a>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <img src="${arrayData[i].image}" alt="">
+                            <img class="products-images-home" src="${arrayData[i].image}" alt="">
                         </div>
                     </div>
                     <div class="border p-3">
