@@ -29,6 +29,7 @@ function generateUserMenu() {
                     </div>
                 </div>
                 `
+
     container.innerHTML = html;
 }
 
@@ -79,9 +80,19 @@ function generateCardProducts(arrayData) {
     container2.innerHTML = html2;
 }
 
+let contSearch = 0;
 function toggleMenu() {
     const container = document.getElementById('user-menu');
     container.classList.toggle('hidden');
+    let searcbar = document.getElementById('searchBarHome');
+    if(contSearch==0){
+        searcbar.style.zIndex = -1;
+        contSearch = 1;
+    }
+    else{
+        searcbar.style.zIndex = 1;
+        contSearch = 0;
+    }
 }
 
 generateCardProducts(products);

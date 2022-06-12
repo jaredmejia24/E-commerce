@@ -180,3 +180,8 @@ div ul li div label{
     background-color: var(--rose-color);
     border-color: var(--rose-color);
 }
+
+#searchBarHome{
+    position: relative;
+    z-index: 1;
+}

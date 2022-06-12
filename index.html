@@ -19,7 +19,7 @@
                 <h4 class="fs-tittle1 rose-color">e-commerce</h4>
             </div>
             <div class="col-2 border-start d-flex justify-content-center py-3">
-                <a href="#" onclick="event.preventDefault(),toggleMenu()">
+                <a href="#" onclick="event.preventDefault(), toggleMenu()">
                     <img src="assets/user 2.svg" class="icon-2rem" alt="">
                 </a>
             </div>
@@ -28,7 +28,7 @@
                     <img src="assets/heart 1.svg" class="icon-2rem" alt="">
                 </a>
             </div>
-            <div class="col-2 border-start d-flex justify-content-center py-3">
+            <div onclick="toggleMenuShop()" class="col-2 border-start d-flex justify-content-center py-3">
                 <a href="#">
                     <img src="assets/shopping-cart 3.svg" class="icon-2rem" alt="">
                 </a>
@@ -38,7 +38,7 @@
             <div class="col-8 d-flex justify-content-end">
                 <div class="col-3 p-3 shadow position-absolute bg-white hidden" id="user-menu">
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn-close" aria-label="Close" onclick="event.preventDefault(),toggleMenu()"></button>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="event.preventDefault(), toggleMenu()"></button>
                     </div>
                     <div class="d-flex flex-column row-gap-1rem mb-5rem">
                         <p class="fs-body2 dark-color fw-semibold m-0">Inicio de sesión o Registro</p>
@@ -250,10 +250,10 @@
             <div style="width: 75vw;" class="products-container mt-5 mx-5">
                 <div class="row mb-5 mx-3">
                     <div class="col">
-                        <div class="input-group mt-5 start-50 translate-middle">
-                            <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                        <div id="searchBarHome" class="input-group mt-5 start-50 translate-middle">
+                            <input id="inputSearch" type="search" class="form-control" placeholder="Search" aria-label="Search"
                               aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary" id="btnSearch">
+                            <button onclick="event.preventDefault(), filteringByInput()" type="button" class="btn btn-outline-primary" id="btnSearch">
                               <img src="assets/search 1.svg" alt="search btn" />
                             </button>
                           </div>

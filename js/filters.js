@@ -14,7 +14,7 @@ function filterText(arrayData, cb) {
 }
 
 function cbSearch(element) {
-    const input = document.getElementById('input-search')
+    const input = document.getElementById('inputSearch')
     return element.model.toLowerCase().includes(input.value.toLowerCase())
 }
 
