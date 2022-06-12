@@ -10,6 +10,10 @@ body {
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .fs-tittle1{
     font-size: 3.125rem;
     font-weight: bolder;
@@ -39,8 +43,13 @@ body {
     font-size: 1rem;
     font-weight: normal;
 }
+
 .bg-rose {
     background-color: var(--rose-color);
+}
+
+.bg-white {
+    background-color: white;
 }
 
 .rose-color{
@@ -86,6 +95,11 @@ body {
 
 .card-product {
     /* max-height: 200; */
+}
+
+.header {
+    top: 0px;
+    background: white;
 }
 
 .chevron-arrow{
