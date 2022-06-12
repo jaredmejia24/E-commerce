@@ -248,11 +248,17 @@
     </form>
         <div class="row">
             <div style="width: 75vw;" class="products-container mt-5 mx-5">
-                <div class="row mb-5">
+                <div class="row mb-5 mx-3">
                     <div class="col">
-                        <input type="text" name="searchProduct" id="searchProduct">
+                        <div class="input-group mt-5 start-50 translate-middle">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                              aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary" id="btnSearch">
+                              <img src="assets/search 1.svg" alt="search btn" />
+                            </button>
+                          </div>
                     </div>
-                    <div class="col d-flex justify-content-end">
+                    <div class="col">
                         <select onchange="selectBrand(), generateBrand()" class="select-filter"  id="brandFilter" name="brandFilter">
                             <option selected="selected" value="brand">Cualquiera</option>
                             <option value="samsung">Samsung</option>
