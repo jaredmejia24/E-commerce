@@ -3,10 +3,11 @@
 import { products } from "./data.js";
 import {generateCardProducts} from "./script.js";
 
-function filter(category, device, RAM, priceArray){
+function filter(category, device, RAM, priceArray, brand){
     category = category.toLowerCase();
     device = device.toLowerCase();
     RAM = RAM.toLowerCase();
+    brand = brand.toLowerCase();
     for(let i of priceArray){
         Number(i);
     }
@@ -15,7 +16,8 @@ function filter(category, device, RAM, priceArray){
         i.category = i.category.toLowerCase();
         i.device = i.device.toLowerCase();
         i.RAM = i.RAM.toLowerCase();
-        if(priceArray[0]==0 || priceArray[1]==0){
+        i.brand = i.brand.toLowerCase();
+        if((priceArray[0]==0 || priceArray[1]==0) && brand=="brand"){
             if(category!='' && device!="" && RAM!=""){
                 if(i.category==category && i.device==device && i.RAM == RAM){
                     newArray.push(i);
@@ -52,7 +54,7 @@ function filter(category, device, RAM, priceArray){
                 }
             }
         }
-        else{
+        else if((priceArray[0]!=0 && priceArray[1]!=0) && brand=="brand"){
             if(category!='' && device!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0){
                 if(i.category==category && i.device==device && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
                     newArray.push(i);
@@ -83,8 +85,97 @@ function filter(category, device, RAM, priceArray){
                     newArray.push(i);
                 }
             }
-            else if(RAM!="" && priceArray[0]>=priceTo[1]){
+            else if(RAM!="" && priceArray[0]!=0 && priceArray[1]!=0){
                 if(i.RAM==RAM && i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+            else if(priceArray[0]!=0 && priceArray[1]!=0){
+                if(i.price<=priceArray[1] && i.price>=priceArray[0]){
+                    newArray.push(i);
+                }
+            }
+        }
+        else if((priceArray[0]==0 || priceArray[1]==0) && brand!="brand"){
+            if(category!='' && device!="" && RAM!="" && brand!="brand"){
+                if(i.category==category && i.device==device && i.RAM == RAM && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && device!="" && brand!="brand"){
+                if(i.category==category && i.device==device && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && RAM!="" && brand!="brand"){
+                if(i.category==category && i.RAM == RAM && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && RAM!="" && brand!="brand"){
+                if(i.device==device && i.RAM == RAM && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && brand!="brand"){
+                if(i.category==category && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && brand!="brand"){
+                if(i.device==device && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(RAM!="" && brand!="brand"){
+                if(i.RAM==RAM && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(brand!="brand"){
+                if(i.brand==brand){
+                    newArray.push(i);
+                }
+            }
+        }
+        else if((priceArray[0]!=0 && priceArray[1]!=0) && brand!="brand"){
+            if(category!='' && device!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.category==category && i.device==device && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && device!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.category==category && i.device==device && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.category==category && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && RAM!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.device==device && i.RAM == RAM && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(category!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.category==category && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(device!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.device==device && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(RAM!="" && priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.RAM==RAM && i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
+                    newArray.push(i);
+                }
+            }
+            else if(priceArray[0]!=0 && priceArray[1]!=0 && brand!="brand"){
+                if(i.price<=priceArray[1] && i.price>=priceArray[0]  && i.brand == brand){
                     newArray.push(i);
                 }
             }
@@ -501,7 +592,9 @@ function changeUnCheckbox4GB(){
 
 function checkCheckboxes(){
     let input = document.querySelectorAll('input[type="checkbox"]:checked');
-    if(input.length==0){
+    let priceArray = checkPrice();
+    let brand = selectBrand();
+    if(input.length==0 && (priceArray[0]==0 || priceArray[1]==0) && brand=="brand"){
         generateCardProducts(products);
     }
     else{
@@ -524,7 +617,7 @@ function checkCheckboxes(){
             }
         }
 
-        array = filter(category, device, RAM, checkPrice());
+        array = filter(category, device, RAM, priceArray, brand);
         generateCardProducts(array);
     }
 }
@@ -535,24 +628,21 @@ function checkPrice(){
     return [pricefrom.value, priceTo.value];
 }
 
-function priceGenerate() {
-    let priceArray = checkPrice();
-    let newArray = [];
-    for (let i of priceArray) {
-        Number(i);
-    }
-    if (priceArray[0]!=0 && priceArray[1]!=0) {
-        for (let i of products) {
-            if(i.price<=priceArray[1] && i.price>=priceArray[0]){
-                newArray.push(i);
-            }
-        }
-    generateCardProducts(newArray);
-    } else {
-        generateCardProducts(products);
-    }
+function priceGenerate(){
+    checkCheckboxes();
 }
 
+function selectBrand(){
+    let brand = document.getElementById('brandFilter').value;
+    return (brand);
+}
+
+function generateBrand(){
+    checkCheckboxes();
+}
+
+window.generateBrand = generateBrand;
+window.selectBrand = selectBrand;
 window.priceGenerate = priceGenerate;
 window.checkPrice = checkPrice;
 window.checkCheckboxes = checkCheckboxes;

@@ -248,17 +248,18 @@
     </form>
         <div class="row">
             <div style="width: 75vw;" class="products-container mt-5 mx-5">
-                <div class="row g-0">
-                    <form action="/create.html" class="col" onsubmit="event.preventDefault(), filteringByInput()">
-                        <div class="d-flex">
-                            <input class="border form-control" type="text" placeholder="¿Qué producto estás buscando?" id="input-search">
-                            <button type="submit">
-                                <img src="assets/search 1.svg" class="border" alt="">
-                            </button>                     
-                        </div>
-                    </form>
+                <div class="row mb-5">
                     <div class="col">
-                        <p>Samsung</p>
+                        <input type="text" name="searchProduct" id="searchProduct">
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <select onchange="selectBrand(), generateBrand()" class="select-filter"  id="brandFilter" name="brandFilter">
+                            <option selected="selected" value="brand">Cualquiera</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="mac">Mac</option>
+                            <option value="iphone">Iphone</option>
+                            <option value="huawei">Huawei</option>
+                          </select>
                     </div>
                 </div>
                 <div class="row g-0">
