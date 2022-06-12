@@ -535,21 +535,20 @@ function checkPrice(){
     return [pricefrom.value, priceTo.value];
 }
 
-function priceGenerate(){
+function priceGenerate() {
     let priceArray = checkPrice();
     let newArray = [];
-    for(let i of priceArray){
+    for (let i of priceArray) {
         Number(i);
     }
-    if(priceArray[0]!=0 && priceArray[1]!=0){
-        for(let i of products){
+    if (priceArray[0]!=0 && priceArray[1]!=0) {
+        for (let i of products) {
             if(i.price<=priceArray[1] && i.price>=priceArray[0]){
                 newArray.push(i);
             }
         }
     generateCardProducts(newArray);
-    }
-    else{
+    } else {
         generateCardProducts(products);
     }
 }
