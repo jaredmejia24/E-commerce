@@ -39,13 +39,6 @@ function deleteUserMenu() {
     container.innerHTML = html;
 }
 
-function quantityProducts(arrayData) {
-    const container = document.getElementById('quantity-of-products');
-    let html = `<p class="my-auto me-2 fs-body2">Total de produtos:</p>
-            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`
-    container.innerHTML = html
-}
-
 function generateCardProducts(arrayData) {
     const container = document.getElementById('cards-products-container');
     let html = '';
@@ -79,7 +72,11 @@ function generateCardProducts(arrayData) {
                     </div>
                 </div>`;
     }
-    container.innerHTML = html;
+    const container2 = document.getElementById('quantity-of-products');
+    let html2 = `<p class="my-auto me-2 fs-body2">Total de produtos:</p>
+            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`
+    container.innerHTML = html
+    container2.innerHTML = html2;
 }
 
 function toggleMenu() {
@@ -87,16 +84,13 @@ function toggleMenu() {
     container.classList.toggle('hidden');
 }
 
-generateCardProducts(products)
+generateCardProducts(products);
 
-quantityProducts(products)
+window.generateUserMenu = generateUserMenu;
 
+window.deleteUserMenu = deleteUserMenu;
 
-window.generateUserMenu = generateUserMenu
-
-window.deleteUserMenu = deleteUserMenu
-
-window.toggleMenu = toggleMenu
+window.toggleMenu = toggleMenu;
 
 export {generateCardProducts};
 
