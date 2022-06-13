@@ -11,9 +11,9 @@ function generateCardProducts(arrayData) {
                 <div class="col-4">
                     <div class="border p-3">
                         <div class="d-flex justify-content-end">
-                            <a href="#">
-                                <img src="assets/heart 1.svg" class="icon-1rem" alt="">
-                             </a>
+                            <div>
+                                <img onclick="likeButton(this)" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
+                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
                             <img class="products-images-home" src="${arrayData[i].image}" alt="">
@@ -43,6 +43,19 @@ function generateCardProducts(arrayData) {
     container2.innerHTML = html2;
 }
 
+function likeButton(a){
+    const likeHTML = '/assets/heart 2.svg'
+    const unlikeHTML = '/assets/heart 1.svg';
+    if(a.classList[1] == "unliked"){
+        a.src = likeHTML;
+        a.classList.toggle('unliked');
+    }
+    else{
+        a.src = unlikeHTML;
+        a.classList.toggle('unliked');
+    }
+}
+
 let contSearch = 0;
 
 function toggleMenu() {
@@ -59,7 +72,13 @@ function toggleMenu() {
     }
 }
 
-generateCardProducts(products);
+function generateCardProductsLoad(){
+    generateCardProducts(products);
+}
+
+window.generateCardProductsLoad = generateCardProductsLoad;
+
+window.likeButton = likeButton;
 
 window.toggleMenu = toggleMenu;
 
