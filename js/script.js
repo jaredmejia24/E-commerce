@@ -2,43 +2,6 @@
 
 import { products } from "./data.js";
 
-function generateUserMenu() {
-    // para añadir el login de los usarios, se puede optimizar que el botón también cierre el menú
-    const container = document.getElementById('dropdown-header-container');
-    let html = `
-                <div class="col-8 d-flex justify-content-end">
-                    <div class="col-3 p-3 shadow position-absolute bg-white" id="user-menu">
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn-close" aria-label="Close" onclick="event.preventDefault(),deleteUserMenu()"></button>
-                        </div>
-                        <div class="d-flex flex-column row-gap-1rem mb-5rem">
-                            <p class="fs-body2 dark-color fw-semibold m-0">Inicio de sesión o Registro</p>
-                            <a href='https://www.google.com/' class="text-decoration-none">
-                                <div class="d-flex border justify-content-center">
-                                    <img src="assets/flat-color-icons_google.svg" class="icon-1-5rem my-2 me-4" alt="">
-                                    <p class="light-gray-color fs-body2 my-2">Acceder con google</p>
-                                </div>
-                            </a>
-                            <a href='https://www.facebook.com/' class="text-decoration-none">
-                                <div class="d-flex border justify-content-center">
-                                    <img src="assets/akar-icons_facebook-fill.svg" class="icon-1-5rem my-2 me-4" alt="">
-                                    <p class="light-gray-color fs-body2 my-2">Acceder con facebook</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                `
-
-    container.innerHTML = html;
-}
-
-function deleteUserMenu() {
-    // para que con la 'X' se quite el espacio del login
-    const container = document.getElementById('dropdown-header-container');
-    let html = ''
-    container.innerHTML = html;
-}
 
 function generateCardProducts(arrayData) {
     const container = document.getElementById('cards-products-container');
@@ -81,8 +44,9 @@ function generateCardProducts(arrayData) {
 }
 
 let contSearch = 0;
+
 function toggleMenu() {
-    const container = document.getElementById('user-menu');
+    let container = document.getElementById('user-menu');
     container.classList.toggle('hidden');
     let searcbar = document.getElementById('searchBarHome');
     if(contSearch==0){
@@ -96,10 +60,6 @@ function toggleMenu() {
 }
 
 generateCardProducts(products);
-
-window.generateUserMenu = generateUserMenu;
-
-window.deleteUserMenu = deleteUserMenu;
 
 window.toggleMenu = toggleMenu;
 
