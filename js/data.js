@@ -12,6 +12,7 @@ let products = [
     {category: "cellphone", device: "android", brand: "Samsung", model: "Galaxy s21", RAM: "12GB", price: 16500.00, image: "/assets/image 16.jpg"},
     {category: "computer", device: "apple", brand: "Mac", model: "Mac Pro", RAM: "12GB", price: 100000.00, image: "https://images.macrumors.com/article-new/2019/06/2019-mac-pro-side-and-front-800x581.jpg"},
     {category: "smartTV", device: "android", brand: "Samsung", model: "Crystal UHD", RAM: "12GB", price: 30500.00, image: "https://m.media-amazon.com/images/I/71LJJrKbezL._AC_SL1500_.jpg"},
+    {category: "tablet", device: "apple", brand: "ipad", model: "Galaxy s21", RAM: "12GB", price: 16500.00, image: "/assets/image 16.jpg"}
 ]
 let count = 1;
 for(let i of products){

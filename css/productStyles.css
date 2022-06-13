@@ -1,0 +1,49 @@
+:root {
+    --rose-color: #F85555;
+    --light-gray-color: #dcd9d9;
+    --gray-color: #c7c7c7;
+    --dark-color: #4F4F4F;
+}
+
+.dot-icon{
+    width: 4rem;
+    margin-top: 0.4rem;
+}
+
+.search-container{
+    width: 80rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container-upper-info{
+    /* width: 100%; */
+    grid-template-columns: 1fr 1fr 1fr;
+   /*  margin: auto; */
+}
+
+.shop-icon{
+    width: 3rem;
+    height: 3rem;
+    margin-top: -3rem;
+   /*  margin-left: 38rem; */
+}
+
+.negative-margin-top{
+    margin-top: -3rem;
+}
+
+.copies-product{
+    padding: 0.5rem 5rem 0.5rem 1rem;
+    /* position: relative;
+    top: 0;
+    bottom: 0;
+    right: -30rem; */
+}
+
+
+.hover-text:hover{
+    border-bottom: 3px solid var(--rose-color);
+    color: #F85555;
+}
+
