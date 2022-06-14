@@ -10,6 +10,15 @@ body {
     margin: 0;
 }
 
+.big-tittle{
+    text-decoration: none;
+}
+
+.big-tittle:hover{
+    text-decoration: none;
+    color: var(--rose-color);
+}
+
 .hidden {
     display: none;
 }
@@ -21,7 +30,6 @@ body {
 .row-gap-1rem {
     row-gap: 1rem;
 }
-
 
 .fs-tittle1{
     font-size: 3.125rem;

@@ -12,12 +12,12 @@
     <link href="/css/productStyles.css" rel="stylesheet">
     <title>e-commerce</title>
 </head>
-<body>
+<body onload="generateEachProductOnLoad()">
     <!-- Header -->
     <div class="header position-sticky">
         <div class="row border justify-content-center g-0">
             <div class="col-6 my-auto ps-4">
-                <h4 class="fs-tittle1 rose-color">e-commerce</h4>
+                <a href="/index.html" class="big-tittle fs-tittle1 rose-color">e-commerce</a>
             </div>
             <div class="col-2 border-start d-flex justify-content-center py-3">
                 <a href="#" onclick="event.preventDefault(), toggleMenu()">
@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>
+    <div id="eachProduct">
     <div class="row">
         <div class="d-flex ">
             <div style="width: auto;" class="col-2 ms-4 mt-4">
@@ -147,28 +148,44 @@
     </div>
     <div class="row d-flex w-75 justify-content-center">
         <div class="col-2">
-            <p style="width: 15rem;" class="hover-text fs-body2 dark-color text-center">Descipcion del producto</p>
+            <p onclick="generateDescription()" style="width: 15rem;" class="hover-text fs-body2 dark-color text-center">Descipcion del producto</p>
         </div>
         <div class="col-6">
-            <p style="width: 15rem;" class="hover-text fs-body2 dark-color text-center">Especificaciones</p>
+            <p onclick="generateSpecs()" style="width: 15rem;" class="hover-text fs-body2 dark-color text-center">Especificaciones</p>
         </div>
     </div>
     <div class="row w-75 m-auto">
         <div class="col">
-            <p class="fs-body2 dark-color">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
-                Precio
-            </p>
-            <p class="fs-body2 dark-color">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
-                Precio
-            </p>
-            <p class="fs-body2 dark-color">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
-                Precio
-            </p>
+            <div id="containerInfo">
+                <p class="fs-body2 dark-color">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
+                    Precio
+                </p>
+                <p class="fs-body2 dark-color">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
+                    Precio
+                </p>
+                <p class="fs-body2 dark-color">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rerum laudantium vel dolorem velit sed soluta, distinctio, praesentium iure nemo quae possimus corporis eos dolorum perferendis asperiores? Dolores, voluptate asperiores.
+                    Precio
+                </p>
         </div>
     </div>
+    <div class="row">
+        <div class="col ms-5 mt-4">
+            <h3 class="fs-body2 rose-color">Otras opciones...</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="everyProduct" class="d-flex each-product mx-5 mt-3 scroll">
+
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <script src="/js/eachProduct.js" type="module"></script>
     <script src="/js/script.js" type="module"></script>
     <script src="/js/filters.js" type="module"></script>
 </body>
