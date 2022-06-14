@@ -63,10 +63,10 @@ function generateCartShopping(arrayData) {
                                 <p class="dark-color fw-semibold">${arrayData[i].model}</p>
                             <div>
                                 <select class="form-select text-end" id="numbersProductsSelect${i}">
-                                    <option onclick='numbersProductsTotal(${i}, ${arrayData[i].price})' value="1" selected>1</option>
-                                    <option onclick='numbersProductsTotal(${i}, ${arrayData[i].price})' value="2">2</option>
-                                    <option onclick='numbersProductsTotal(${i}, ${arrayData[i].price})' value="3">3</option>
-                                    <option onclick='numbersProductsTotal(${i}, ${arrayData[i].price})' value="4">4</option>
+                                    <option onclick='numbersProductsTotal()' value="1" selected>1</option>
+                                    <option onclick='numbersProductsTotal()' value="2">2</option>
+                                    <option onclick='numbersProductsTotal()' value="3">3</option>
+                                    <option onclick='numbersProductsTotal()' value="4">4</option>
                                 </select>
                             </div>
                         </div>
@@ -168,14 +168,21 @@ function toggleMenuShop() {
 
 generateCardProducts(products);
 generateCartShopping(shopingCart);
-generateCartFavorites(favoritesCart)
+generateCartFavorites(favoritesCart);
+numbersProductsTotal()
 
-function numbersProductsTotal(id, price) {
-    let numbers = document.getElementById(`numbersProductsSelect${id}`)
-    let totalContainer = document.getElementById(`total-container${id}`)
-    shopingCart[id].amount = numbers.value * price
-    let html = '$' + shopingCart[id].amount
-    totalContainer.innerHTML = html
+function numbersProductsTotal() {
+    for (let i = 0; i < shopingCart.length; i++) {
+        let numbers = document.getElementById(`numbersProductsSelect${i}`)
+        let totalContainer = document.getElementById(`total-container${i}`)
+        if (numbers) {
+            shopingCart[i].amount = numbers.value * shopingCart[i].price
+        } else {
+            shopingCart[i].amount = price
+        }
+        let html = '$' + shopingCart[i].amount
+            totalContainer.innerHTML = html
+    }
     subtotalProducts()
 }
 
@@ -213,13 +220,17 @@ function addCartShopping(productID) {
     */
     for (let i = 0; i < shopingCart.length; i++) {
         if (shopingCart[i].id === productID) {
+            let numbers = document.getElementById(`numbersProductsSelect${i}`)
+            numbers.value ++
+            numbersProductsTotal()
             return
         }
     }
-    shopingCart.push(finderProduct(products, cbID, productID))
-    
+    let productToAgregate = finderProduct(products, cbID, productID)
+    shopingCart.push(productToAgregate)
     localStorage.setItem('shopingCart', JSON.stringify(shopingCart))
     generateCartShopping(shopingCart)
+    numbersProductsTotal()
 }
 
 function deleteCartShopping(productID) {
@@ -230,6 +241,7 @@ function deleteCartShopping(productID) {
     }
     localStorage.setItem('shopingCart', JSON.stringify(shopingCart))
     generateCartShopping(shopingCart)
+    numbersProductsTotal()
 }
 
 function deleteCartFavorite(productID) {
