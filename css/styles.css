@@ -14,6 +14,10 @@ body {
     display: none;
 }
 
+.min-h-40rem {
+    min-height: 40rem;
+}
+
 .mb-5rem {
     margin-bottom: 5rem;
 }
@@ -21,7 +25,6 @@ body {
 .row-gap-1rem {
     row-gap: 1rem;
 }
-
 
 .fs-tittle1{
     font-size: 3.125rem;
@@ -51,6 +54,11 @@ body {
 .fs-body2{
     font-size: 1rem;
     font-weight: normal;
+}
+
+.fs-body3 {
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 .bg-rose {
@@ -109,6 +117,10 @@ body {
 .header {
     top: 0px;
     background: white;
+}
+
+.img-product-cart {
+    width: 6rem;
 }
 
 .chevron-arrow{
