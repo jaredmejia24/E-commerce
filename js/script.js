@@ -12,7 +12,7 @@ function generateCardProducts(arrayData) {
                     <div class="border p-3">
                         <div class="d-flex justify-content-end">
                             <div>
-                                <img onclick="likeButton(this)" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
+                                <img onclick="likeButton(this, ${arrayData[i].id})" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
                              </div>
                         </div>
                         <div class="d-flex justify-content-center">
@@ -87,6 +87,25 @@ function generateCartShopping(arrayData) {
     container.innerHTML = html
 }
 
+function generateCartFavorites(arrayData) {
+    const container = document.getElementById('container-favorites-cart')
+    let html = ''
+    for (let i = 0; i < arrayData.length; i++) {
+        html += `<div class="d-flex flex-row justify-content-between mb-4 border">
+                    <div class="d-flex">
+                        <div>
+                            <img src="${arrayData[i].image}" alt="" class="img-product-cart">
+                        </div>
+                            <div>
+                                <p class="m-0 gray-color fs-body3">${arrayData[i].brand.toUpperCase()}</p>
+                                <p class="dark-color fw-semibold">${arrayData[i].model}</p>
+                        </div>
+                    </div>
+                </div>`
+    }
+    container.innerHTML = html
+}
+
 let shopingCart = localStorage.getItem('shopingCart')
 
 if (shopingCart) {
@@ -95,18 +114,28 @@ if (shopingCart) {
     shopingCart = []
 }
 
+let favoritesCart = localStorage.getItem('favoritesCart')
+
+if (favoritesCart) {
+    favoritesCart = JSON.parse(favoritesCart)
+} else {
+    favoritesCart = []
+}
 
 
-function likeButton(a){
+
+function likeButton(a, idLiked){
     const likeHTML = '/assets/heart 2.svg'
     const unlikeHTML = '/assets/heart 1.svg';
     if(a.classList[1] == "unliked"){
         a.src = likeHTML;
         a.classList.toggle('unliked');
+        addFavorites(idLiked)
     }
     else{
         a.src = unlikeHTML;
         a.classList.toggle('unliked');
+        deleteCartFavorite(idLiked)
     }
 }
 
@@ -127,6 +156,10 @@ function toggleMenu() {
     }
 }
 
+function toogleFavorites() {
+    let container = document.getElementById('favorites-cart')
+    container.classList.toggle('hidden');
+}
 
 function toggleMenuShop() {
     let container = document.getElementById('shopping-cart')
@@ -134,7 +167,8 @@ function toggleMenuShop() {
 }
 
 generateCardProducts(products);
-generateCartShopping(shopingCart)
+generateCartShopping(shopingCart);
+generateCartFavorites(favoritesCart)
 
 function numbersProductsTotal(id, price) {
     let numbers = document.getElementById(`numbersProductsSelect${id}`)
@@ -159,6 +193,17 @@ function subtotalProducts() {
     total = subtotal + (subtotal * (20/100))
     let htmlTotal = `$${total}`
     totalContainer.innerHTML = htmlTotal
+}
+
+function addFavorites(productID) {
+    for (let i = 0; i < favoritesCart.length; i++) {
+        if (favoritesCart[i].id === productID) {
+            return
+        }
+    }
+    favoritesCart.push(finderProduct(products, cbID, productID))
+    localStorage.setItem('favoritesCart', JSON.stringify(favoritesCart))
+    generateCartFavorites(favoritesCart)
 }
 
 function addCartShopping(productID) {
@@ -187,6 +232,16 @@ function deleteCartShopping(productID) {
     generateCartShopping(shopingCart)
 }
 
+function deleteCartFavorite(productID) {
+    for (let i = 0; i < favoritesCart.length; i++) {
+        if (favoritesCart[i].id === productID) {
+            favoritesCart.splice(i, 1)
+        }
+    }
+    localStorage.setItem('favoritesCart', JSON.stringify(favoritesCart))
+    generateCartFavorites(favoritesCart)
+}
+
 function generateCardProductsLoad(){
     generateCardProducts(products);
 }
@@ -194,11 +249,14 @@ function generateCardProductsLoad(){
 
 window.generateCardProductsLoad = generateCardProductsLoad;
 window.likeButton = likeButton;
+// window.addFavorites = addFavorites;
+window.deleteCartFavorite = deleteCartFavorite;
 window.addCartShopping = addCartShopping;
 window.toggleMenu = toggleMenu;
 window.toggleMenuShop = toggleMenuShop
 window.numbersProductsTotal = numbersProductsTotal
 window.deleteCartShopping = deleteCartShopping
+window.toogleFavorites = toogleFavorites
 
 export {generateCardProducts};
 
