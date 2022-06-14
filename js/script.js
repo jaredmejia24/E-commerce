@@ -11,12 +11,14 @@ function generateCardProducts(arrayData) {
                 <div class="col-4">
                     <div class="border p-3">
                         <div class="d-flex justify-content-end">
-                            <a href="#">
-                                <img src="assets/heart 1.svg" class="icon-1rem" alt="">
-                             </a>
+                            <div>
+                                <img onclick="likeButton(this)" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
+                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <img class="products-images-home" src="${arrayData[i].image}" alt="">
+                            <a href="/modelOfEachProduct.html">
+                                <img onclick="getInfoImage(this)" class="products-images-home" src="${arrayData[i].image}" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="border p-3">
@@ -40,10 +42,11 @@ function generateCardProducts(arrayData) {
     }
     const container2 = document.getElementById('quantity-of-products');
     let html2 = `<p class="my-auto me-2 fs-body2">Total de produtos:</p>
-            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`
-    container.innerHTML = html
+            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`;
+    container.innerHTML = html;
     container2.innerHTML = html2;
 }
+
 
 function generateCartShopping(arrayData) {
     const container = document.getElementById('container-product-shopping-cart')
@@ -93,6 +96,21 @@ if (shopingCart) {
 }
 
 
+
+function likeButton(a){
+    const likeHTML = '/assets/heart 2.svg'
+    const unlikeHTML = '/assets/heart 1.svg';
+    if(a.classList[1] == "unliked"){
+        a.src = likeHTML;
+        a.classList.toggle('unliked');
+    }
+    else{
+        a.src = unlikeHTML;
+        a.classList.toggle('unliked');
+    }
+}
+
+
 let contSearch = 0;
 
 function toggleMenu() {
@@ -108,6 +126,7 @@ function toggleMenu() {
         contSearch = 0;
     }
 }
+
 
 function toggleMenuShop() {
     let container = document.getElementById('shopping-cart')
@@ -168,6 +187,13 @@ function deleteCartShopping(productID) {
     generateCartShopping(shopingCart)
 }
 
+function generateCardProductsLoad(){
+    generateCardProducts(products);
+}
+
+
+window.generateCardProductsLoad = generateCardProductsLoad;
+window.likeButton = likeButton;
 window.addCartShopping = addCartShopping;
 window.toggleMenu = toggleMenu;
 window.toggleMenuShop = toggleMenuShop

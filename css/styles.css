@@ -10,6 +10,15 @@ body {
     margin: 0;
 }
 
+.big-tittle{
+    text-decoration: none;
+}
+
+.big-tittle:hover{
+    text-decoration: none;
+    color: var(--rose-color);
+}
+
 .hidden {
     display: none;
 }
