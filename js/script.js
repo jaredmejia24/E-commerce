@@ -16,7 +16,9 @@ function generateCardProducts(arrayData) {
                              </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <img class="products-images-home" src="${arrayData[i].image}" alt="">
+                            <a href="/modelOfEachProduct.html">
+                                <img onclick="getInfoImage(this)" class="products-images-home" src="${arrayData[i].image}" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="border p-3">
@@ -38,8 +40,8 @@ function generateCardProducts(arrayData) {
     }
     const container2 = document.getElementById('quantity-of-products');
     let html2 = `<p class="my-auto me-2 fs-body2">Total de produtos:</p>
-            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`
-    container.innerHTML = html
+            <p class="my-auto rose-color fs-body2 fw-semibold">${arrayData.length}</p>`;
+    container.innerHTML = html;
     container2.innerHTML = html2;
 }
 
@@ -75,6 +77,7 @@ function toggleMenu() {
 function generateCardProductsLoad(){
     generateCardProducts(products);
 }
+
 
 window.generateCardProductsLoad = generateCardProductsLoad;
 
