@@ -30,11 +30,11 @@ function generateCardProducts(arrayData) {
                             <div>
                                 <p class="m-0 fs-body2 light-gray-color fw-semibold">Precio:</p>
                                 <p class="ms-3 fs-subtittle1 dark-color">$${arrayData[i].price}</p>
-                            </div>
+                            </div class="cart-icon-div">
                             <!-- class="bg-rose icon-2-5rem d-flex justify-content-center align-items-center
                             le quite las clases al botón de añadir al carrito de compras porque sino no funcionaba -->
                             <a href="#" onclick="event.preventDefault(), addCartShopping(${arrayData[i].id})">
-                                <img src="assets/shopping-cart 3.svg" class="icon-1-5rem" alt="">
+                                <img src="assets/shopping-cart 3.svg" class="icon-1-5rem cart-icon" alt="">
                             </a>
                         </div>
                     </div>
