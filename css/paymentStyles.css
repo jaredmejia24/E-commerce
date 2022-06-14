@@ -125,3 +125,12 @@
         opacity: 1;
     }
 }
+
+.img-cont{
+    display: flex;
+    justify-content: center;
+}
+
+#confirmed-img{
+    width: 200px;
+}

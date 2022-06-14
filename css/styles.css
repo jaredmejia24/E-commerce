@@ -113,15 +113,15 @@ body {
     width: 1rem;
 }
 
-.product-img {
-    /* max-height: 200px; */
-    /* width: 250px; */
-    /* height: 250px; */
+/* .product-img {
+    max-height: 200px;
+    width: 250px;
+    height: 250px;
 }
 
 .card-product {
-    /* max-height: 200; */
-}
+    max-height: 200;
+} */
 
 .header {
     top: 0px;
@@ -205,4 +205,11 @@ div ul li div label{
 #searchBarHome{
     position: relative;
     z-index: 1;
+}
+
+.cart-icon:hover{
+    background-color: var(--rose-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
