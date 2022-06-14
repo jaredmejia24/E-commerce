@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="col-2 border-start d-flex justify-content-center py-3">
-                <a href="#">
+                <a href="#" onclick="event.preventDefault(), toogleFavorites()">
                     <img src="assets/heart 1.svg" class="icon-2rem" alt="">
                 </a>
             </div>
@@ -55,6 +55,14 @@
                                 <p class="light-gray-color fs-body2 my-2">Acceder con facebook</p>
                             </div>
                         </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 d-flex justify-content-end">
+                <div class="col-3 shadow position-absolute bg-white hidden p-3" id="favorites-cart">
+                    <p class="fs-body1 fw-semibold">Productos favoritos</p>
+                    <div class="container-product-favorites-cart" id="container-favorites-cart">
+                        <!-- products in favorites -->
                     </div>
                 </div>
             </div>
