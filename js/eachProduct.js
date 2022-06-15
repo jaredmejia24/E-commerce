@@ -1,6 +1,8 @@
 "use strict";
 
 import { products } from "./data.js";
+import {likeButton } from "./script.js";
+console.log(likeButton);
 
 function generateCardProductsInEachProduct(arrayData){
     const container = document.getElementById('everyProduct');
@@ -11,7 +13,7 @@ function generateCardProductsInEachProduct(arrayData){
                     <div class="border p-3">
                         <div class="d-flex justify-content-end">
                             <div>
-                                <img onclick="likeButton(this)" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
+                                <img onclick="likeButton(this, ${arrayData[i].id})" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
                              </div>
                         </div>
                         <div class="d-flex justify-content-center">
@@ -157,7 +159,7 @@ function generateEachProduct(){
                         <div class="d-flex align-items-center flex-column">
                             <div class="w-75 d-flex justify-content-end">
                                 <div>
-                                    <img onclick="likeButton(this)" src="/assets/heart 1.svg" class="w-75 unliked" alt="">
+                                    <img onclick="likeButton(this, ${object.id})" src="/assets/heart 1.svg" class="w-75 unliked" alt="">
                                 </div>
                             </div>
                             <div>

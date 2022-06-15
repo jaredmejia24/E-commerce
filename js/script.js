@@ -158,6 +158,7 @@ function toggleMenu() {
 
 function toogleFavorites() {
     let container = document.getElementById('favorites-cart')
+    console.log(container);
     container.classList.toggle('hidden');
 }
 
@@ -166,10 +167,6 @@ function toggleMenuShop() {
     container.classList.toggle('hidden');
 }
 
-generateCardProducts(products);
-generateCartShopping(shopingCart);
-generateCartFavorites(favoritesCart);
-numbersProductsTotal()
 
 function numbersProductsTotal() {
     for (let i = 0; i < shopingCart.length; i++) {
@@ -256,6 +253,9 @@ function deleteCartFavorite(productID) {
 
 function generateCardProductsLoad(){
     generateCardProducts(products);
+    generateCartShopping(shopingCart);
+    generateCartFavorites(favoritesCart);
+    numbersProductsTotal()
 }
 
 
@@ -270,5 +270,5 @@ window.numbersProductsTotal = numbersProductsTotal
 window.deleteCartShopping = deleteCartShopping
 window.toogleFavorites = toogleFavorites
 
-export {generateCardProducts};
+export {generateCardProducts, likeButton, toggleMenu, toggleMenuShop};
 
