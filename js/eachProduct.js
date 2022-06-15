@@ -1,8 +1,7 @@
 "use strict";
 
 import { products } from "./data.js";
-import {likeButton } from "./script.js";
-console.log(likeButton);
+import { likeButton, addCartShopping } from "./script.js";
 
 function generateCardProductsInEachProduct(arrayData){
     const container = document.getElementById('everyProduct');

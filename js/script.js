@@ -49,9 +49,22 @@ function generateCardProducts(arrayData) {
 
 
 function generateCartShopping(arrayData) {
-    const container = document.getElementById('container-product-shopping-cart')
+    const container = document.getElementById('container-product-shopping-cart');
+    let containerPayButton = document.getElementById('payButton');
+    let containerPayButton2 = document.getElementById('payButton2');
     let html = ''
-
+    if(arrayData.length>=1){
+        let htmlButton = `
+        <button class="bg-rose border-0 w-100 py-2" onclick="location.href='payment.html'">
+            <p class="text-white fw-semibold my-auto">Proceder al pago</p>
+        </button>`;
+        containerPayButton.innerHTML = htmlButton;
+        containerPayButton2.innerHTML = htmlButton;
+    }
+    else{
+        containerPayButton.innerHTML = "";
+        containerPayButton2.innerHTML = "";
+    }
     for (let i = 0; i < arrayData.length; i++) {
         html += `<div class="d-flex flex-row justify-content-between mb-4">
                     <div class="d-flex">
@@ -158,7 +171,6 @@ function toggleMenu() {
 
 function toogleFavorites() {
     let container = document.getElementById('favorites-cart')
-    console.log(container);
     container.classList.toggle('hidden');
 }
 
@@ -270,5 +282,5 @@ window.numbersProductsTotal = numbersProductsTotal
 window.deleteCartShopping = deleteCartShopping
 window.toogleFavorites = toogleFavorites
 
-export {generateCardProducts, likeButton, toggleMenu, toggleMenuShop};
+export {generateCardProducts, likeButton, addCartShopping};
 
