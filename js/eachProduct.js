@@ -32,8 +32,10 @@ function generateCardProductsInEachProduct(arrayData){
                                 <p class="m-0 fs-body2 light-gray-color fw-semibold">Precio:</p>
                                 <p class="ms-3 fs-subtittle1 dark-color">$${arrayData[i].price}</p>
                             </div>
-                            <a href="#" class="bg-rose rounded-circle icon-2-5rem d-flex justify-content-center align-items-center">
-                                <img src="assets/shopping-cart 3.svg" class="icon-1-5rem" alt="">
+                            <!-- class="bg-rose icon-2-5rem d-flex justify-content-center align-items-center
+                            le quite las clases al botón de añadir al carrito de compras porque sino no funcionaba -->
+                            <a href="#" onclick="event.preventDefault(), addCartShopping(${arrayData[i].id})">
+                                <img src="assets/shopping-cart 3.svg" class="icon-1-5rem cart-icon" alt="">
                             </a>
                         </div>
                     </div>
@@ -172,9 +174,11 @@ function generateEachProduct(){
                     <p class="m-0 fs-body2 light-gray-color fw-semibold">${object.brand.toUpperCase()}</p>
                     <p class="fs-subtittle1 dark-color">${object.model}</p>
                     <div class="d-flex justify-content-end">
-                        <a href="#" class="shop-icon bg-rose rounded-circle icon-2-5rem d-flex justify-content-center align-items-center">
-                            <img src="assets/shopping-cart 3.svg" class="icon-1-5rem" alt="">
-                        </a>
+                    <!-- class="bg-rose icon-2-5rem d-flex justify-content-center align-items-center
+                    le quite las clases al botón de añadir al carrito de compras porque sino no funcionaba -->
+                    <a href="#" onclick="event.preventDefault(), addCartShopping(${object.id})">
+                        <img src="assets/shopping-cart 3.svg" class="icon-1-5rem cart-icon" alt="">
+                    </a>
                     </div>
                     <div>
                         <p class="fs-subtittle1 dark-color">${object.RAM} RAM</p>
