@@ -8,14 +8,14 @@ function generateCardProducts(arrayData) {
     let html = '';
     for(let i = 0; i < arrayData.length; i++) {
         html += `
-                <div class="col-4">
+                <div class="col-4 mb-5">
                     <div class="border p-3">
                         <div class="d-flex justify-content-end">
                             <div>
                                 <img onclick="likeButton(this, ${arrayData[i].id})" src="/assets/heart 1.svg" class="icon-1rem unliked" alt="">
                              </div>
                         </div>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center product-img">
                             <a href="/modelOfEachProduct.html">
                                 <img onclick="getInfoImage(this)" class="products-images-home" src="${arrayData[i].image}" alt="">
                             </a>
