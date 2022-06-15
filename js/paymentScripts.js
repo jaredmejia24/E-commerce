@@ -45,3 +45,7 @@ function updateProgressbar(){
     }
   });
 }
+
+function cleanStorage(){
+  localStorage.clear();
+}
